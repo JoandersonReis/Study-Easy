@@ -2,4 +2,6 @@ node_modules/
 npm-debug.log
 yarn-error.log
 
-src/database/database.sqlite
+database/database.sqlite
+
+.gitignore
