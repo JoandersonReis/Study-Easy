@@ -119,12 +119,6 @@ const Matters = () => {
       >
         <Feather name="plus" size={40} color="#fff" />
       </RectButton>
-
-      <RectButton
-        style={styles.whatsapp}
-      >
-        <FontAwesome name="whatsapp" size={40} color="#27ae60" />
-      </RectButton>
     </View>
   )
 }

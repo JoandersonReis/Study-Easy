@@ -1,8 +1,9 @@
 import React, { useState } from "react"
-import { View, Text, Image, TouchableOpacity, FlatList, Alert } from "react-native"
+import { View, Text, Image, FlatList, Alert, Linking } from "react-native"
 import Feather from "react-native-vector-icons/Feather"
 import { useNavigation, useRoute, useFocusEffect } from "@react-navigation/native"
 import { RectButton, BorderlessButton } from "react-native-gesture-handler"
+import FontAwesome from "react-native-vector-icons/FontAwesome"
 
 import styles from "./styles"
 import api from "../../services/api"
@@ -48,6 +49,16 @@ const Subjects = () => {
     }
   }
 
+  function handleShareWhatsapp() {
+    const arrSubjects = subjects.map(subject => {
+      return `- ${subject.name}`
+    })
+
+    let text = `*${routeParams.name}:* \n\n` + arrSubjects.join(",\n")
+
+  	Linking.openURL(`whatsapp://send?text=${text}`)
+  }
+
   useFocusEffect(() => {
     api.get(`/subjects/${routeParams.matterId}`).then(response => {
       setSubjects(response.data)
@@ -68,7 +79,7 @@ const Subjects = () => {
         </BorderlessButton>
       </View>
 
-      <Text style={styles.title}>Asuntos de {routeParams.name}</Text>
+      <Text style={styles.title}>{routeParams.name}</Text>
 
       <FlatList 
         style={styles.content}
@@ -126,6 +137,13 @@ const Subjects = () => {
           onPress={() => navigation.navigate("AddSubject", {matterId: routeParams.matterId})}
         >
           <Feather name="plus" size={40} color="#fff" />
+      </RectButton>
+
+      <RectButton
+        style={styles.whatsapp}
+        onPress={handleShareWhatsapp}
+      >
+        <FontAwesome name="whatsapp" size={40} color="#27ae60" />
       </RectButton>
     </View>
   )

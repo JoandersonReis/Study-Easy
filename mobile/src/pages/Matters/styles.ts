@@ -137,18 +137,4 @@ export default StyleSheet.create({
     borderColor: "#fff",
     borderWidth: 2
   },
-
-  whatsapp: {
-    backgroundColor: "#fff",
-    position: "absolute",
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 100,
-    height: 70,
-    width: 70,
-    bottom: 10,
-    left: 10,
-    borderColor: "#27ae60",
-    borderWidth: 2
-  }
 })

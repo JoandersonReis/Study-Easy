@@ -51,13 +51,15 @@ const Register = () => {
           <Text style={styles.label}>Senha</Text>
           <TextInput 
             style={styles.input} 
-            placeholder="Ex: 123714192" 
+            placeholder="Ex: 123714192"
+            secureTextEntry={true}
             onChangeText={text => setPassword(text)} />
 
           <Text style={styles.label}>Reescreva a senha</Text>
           <TextInput 
             style={styles.input} 
-            placeholder="Ex: 123714192" 
+            placeholder="Ex: 123714192"
+            secureTextEntry={true}
             onChangeText={text => setSecondPassword(text)} />
 
           <RectButton
